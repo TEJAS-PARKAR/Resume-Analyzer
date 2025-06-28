@@ -12,8 +12,13 @@ if uploaded_file:
 
     # Load spaCy model
     nlp = spacy.load("en_core_web_sm")
-    doc = nlp("This is a test sentence for SpaCy.")
+    # Example: Extract text from uploaded file (implement actual extraction as needed)
+    resume_text = "This is a test sentence for SpaCy."  # Replace with actual extraction logic
+    doc = nlp(resume_text)
     st.write("SpaCy tokens:", [token.text for token in doc])
+    # Example: Extract skills (replace with actual extraction logic)
+    skills = [ent.text for ent in doc.ents if ent.label_ == "SKILL"] if hasattr(doc.ents[0], 'label_') else []
+    result = {"skills": skills}
 
 
 job_listings = [
